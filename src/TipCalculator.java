@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class TipCalculator {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
 
+        Scanner scan = new Scanner(System.in);
         DecimalFormat formatter = new DecimalFormat("#.##");
 
         System.out.println("Welcome to the Tip Calculator!");
@@ -17,25 +17,21 @@ public class TipCalculator {
         int tipPercent = scan.nextInt();
         scan.nextLine();
 
-        System.out.print("Enter a cost in dollars and cents, e.g. 12.50 (Type -1 to end): ");
-        double price = scan.nextDouble();
+        //variables//
+        double totalBill = 0;
+        double updatePrice = 0;
 
-        double totalBill; //figure out how to print the totalBill outside of the while loop//
-        double price2;
-
-
-        while (price != -1) {
+        while (updatePrice >=0) {
             System.out.print("Enter a cost in dollars and cents, e.g. 12.50 (Type -1 to end): ");
-            price2 = scan.nextDouble();
-            totalBill = price + price2;
-            String formatBill = formatter.format(totalBill); //fix the format
-            System.out.println(totalBill);
+            totalBill += updatePrice;
+            updatePrice = scan.nextDouble();
             }
 
-
-        //receipt code
+        //receipt code//
         System.out.println("-------------------------");
-        System.out.println("Total bill before tip: " );
+        System.out.println("Total bill before tip: " + totalBill);
+
+        scan.close();
 
 
         }
